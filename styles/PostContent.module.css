@@ -31,6 +31,61 @@
   color: var(--gray-800);
 }
 
+/* ✅ Markdown-specific styles */
+.content h2 {
+  font-size: 1.8rem;
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
+  color: var(--gray-900);
+}
+
+.content h3 {
+  font-size: 1.4rem;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--gray-800);
+}
+
+.content p {
+  margin-bottom: var(--spacing-lg);
+}
+
+.content ul {
+  margin: var(--spacing-lg) 0;
+  padding-left: var(--spacing-xl);
+}
+
+.content li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.content blockquote {
+  border-left: 4px solid var(--primary);
+  padding-left: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  color: var(--gray-700);
+  font-style: italic;
+  background: var(--gray-50);
+}
+
+/* ✅ Optional: code block styling */
+.content pre {
+  background: var(--gray-900);
+  color: var(--white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+}
+
+.content code {
+  background: var(--gray-100);
+  color: var(--primary);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
 .excerpt {
   font-size: 1.25rem;
   font-weight: 500;
