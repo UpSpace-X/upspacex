@@ -1,17 +1,21 @@
 // pages/api/posts.js
-import { localPosts } from '../../data/posts';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-export default async function handler(req, res) {
-  try {
-    // Try fetching from CMS API
-    const cmsRes = await fetch(`${process.env.NEXT_PUBLIC_API_BASE}/posts`);
-    if (!cmsRes.ok) throw new Error('CMS fetch failed');
+export default function handler(req, res) {
+  const postsDir = path.join(process.cwd(), 'content/posts');
+  const filenames = fs.readdirSync(postsDir);
 
-    const data = await cmsRes.json();
-    return res.status(200).json({ posts: data.posts || [] });
-  } catch (error) {
-    console.error('CMS error (falling back to local):', error);
-    // Fallback to local mock data
-    return res.status(200).json({ posts: localPosts });
-  }
+  const posts = filenames.map((filename) => {
+    const filePath = path.join(postsDir, filename);
+    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const { data } = matter(fileContent);
+
+    return {
+      ...data, // frontmatter fields (title, slug, etc.)
+    };
+  });
+
+  res.status(200).json({ posts });
 }
