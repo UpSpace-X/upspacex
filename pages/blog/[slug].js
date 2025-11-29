@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { format } from 'date-fns';
 import Layout from '../../components/layout/Layout';
 import SEO from '../../components/seo/SEO';
@@ -5,6 +6,20 @@ import { posts } from '../../data/posts';
 import styles from '../../styles/PostContent.module.css';
 
 export default function Post({ post }) {
+  const router = useRouter();
+
+  // Show a loading state when fallback is true and the page is being generated
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <div className="container" style={{ padding: '4rem 0', textAlign: 'center' }}>
+          <h1>Loading…</h1>
+          <p>We’re preparing this article for you.</p>
+        </div>
+      </Layout>
+    );
+  }
+
   if (!post) {
     return (
       <Layout>
@@ -45,7 +60,7 @@ export default function Post({ post }) {
               </div>
             </div>
 
-            {/* ✅ Cover Image added inline */}
+            {/* Cover Image inline */}
             <img
               src={post.coverImage}
               alt={post.title}
@@ -73,10 +88,16 @@ export async function getStaticPaths() {
     params: { slug: post.slug }
   }));
 
-  return { paths, fallback: false };
+  // Use fallback: true so new posts can be added without a full rebuild
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
-  const post = posts.find(p => p.slug === params.slug);
-  return { props: { post: post || null } };
+  const post = posts.find(p => p.slug === params.slug) || null;
+
+  return {
+    props: { post },
+    // Optional: revalidate to keep content fresh if posts might change
+    revalidate: 60
+  };
 }
