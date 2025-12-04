@@ -36,7 +36,7 @@ export default function Post({ post }) {
   return (
     <Layout>
       <SEO 
-        title={`${post.title} | UpSpace`}
+        title={`${post.title} | UpSpaceX`}
         description={post.excerpt}
         image={post.coverImage}
         article={true}
