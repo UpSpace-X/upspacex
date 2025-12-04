@@ -1,16 +1,19 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const SEO = ({ 
-  title = 'UpSpace - Technology, Business & Innovation',
-  description = 'Your source for the latest in technology, business insights, and innovation.',
+const SEO = ({
+  title = 'UpSpaceX - Your daily space for everything that matters.',
+  description = 'Your daily space for everything that matters.',
   image = '/images/og-image.jpg',
-  article = false 
+  article = false
 }) => {
   const router = useRouter();
-  const siteURL = 'https://upspace.com'; // Replace with your actual domain
+  
+  // ✅ Use environment variables instead of hardcoding
+  const siteURL = process.env.NEXT_PUBLIC_SITE_URL;
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
   const canonicalURL = `${siteURL}${router.asPath}`;
-
+  
   return (
     <Head>
       <title>{title}</title>
@@ -23,7 +26,7 @@ const SEO = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalURL} />
       <meta property="og:image" content={`${siteURL}${image}`} />
-      <meta property="og:site_name" content="UpSpace" />
+      <meta property="og:site_name" content={siteName} />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
