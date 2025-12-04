@@ -9,7 +9,7 @@ export default function Home({ featuredPosts }) {
       {/* Hero Section */}
       <section className={styles.hero}>
         <h1 className={styles.title}>
-          Welcome to <span className={styles.brand}>UpSpace</span>
+          Welcome to <span className={styles.brand}>UpSpaceX</span>
         </h1>
         <p className={styles.subtitle}>
           A modern blog and content platform built with Next.js.
