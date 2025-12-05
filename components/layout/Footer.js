@@ -50,15 +50,7 @@ const Footer = () => {
             <Link href="/blog/category/opinion">Opinion</Link>
           </div>
 
-          {/* ✅ Newsletter */}
-          <div className={styles.newsletter}>
-            <h4>Newsletter</h4>
-            <p>Subscribe to get the latest updates</p>
-            <form className={styles.form}>
-              <input type="email" placeholder="Your email" required />
-              <button type="submit">Subscribe</button>
-            </form>
-          </div>
+          {/* ❌ Newsletter removed */}
         </div>
 
         {/* ✅ Bottom bar */}

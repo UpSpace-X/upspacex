@@ -67,6 +67,80 @@
   width: 100%;
 }
 
+/* ✅ Dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--gray-700);
+  padding: var(--spacing-sm) var(--spacing-md);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.navButton::after {
+  content: "▼"; /* Arrow indicator */
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .navButton::after {
+  transform: rotate(180deg); /* Flip arrow when open (desktop hover) */
+}
+
+.navButton:hover {
+  color: var(--primary);
+}
+
+/* ✅ Animated dropdown menu */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  z-index: var(--z-header);
+
+  /* Animation */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdownMenu.open { /* open class for mobile click */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdownMenu a {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background var(--transition-fast);
+}
+
+.dropdownMenu a:hover {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
 /* ✅ Actions */
 .actions {
   display: flex;
@@ -125,5 +199,27 @@
   .nav a {
     font-size: 1.125rem;
     padding: var(--spacing-sm) 0;
+  }
+
+  /* ✅ Mobile dropdown menu */
+  .dropdownMenu {
+    position: static;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    min-width: unset;
+
+    /* Reset animation for mobile */
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .dropdownMenu a {
+    padding: var(--spacing-sm) 0;
+  }
+
+  .navButton::after {
+    transform: none; /* Arrow stays static on mobile */
   }
 }
