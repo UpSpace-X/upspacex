@@ -1,8 +1,14 @@
+/* ============================================
+   FILE: styles/Contact.module.css
+   ============================================ */
+
+/* ✅ Contact Section */
 .contact {
-  padding: var(--spacing-3xl) 0;
+  /* inherits vertical spacing from .section */
   min-height: 70vh;
 }
 
+/* ✅ Content Layout */
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -10,6 +16,7 @@
   align-items: start;
 }
 
+/* ✅ Info Block */
 .info h1 {
   font-size: 2.5rem;
   margin-bottom: var(--spacing-lg);
@@ -22,6 +29,7 @@
   margin-bottom: var(--spacing-2xl);
 }
 
+/* ✅ Contact Methods */
 .contactMethods {
   display: flex;
   flex-direction: column;
@@ -45,6 +53,7 @@
   margin: 0;
 }
 
+/* ✅ Contact Form */
 .form {
   background: var(--white);
   padding: var(--spacing-2xl);
@@ -84,6 +93,7 @@
   resize: vertical;
 }
 
+/* ✅ Success Message */
 .success {
   margin-top: var(--spacing-lg);
   padding: var(--spacing-md);
@@ -94,6 +104,7 @@
   font-weight: 500;
 }
 
+/* ✅ Responsive */
 @media (max-width: 768px) {
   .content {
     grid-template-columns: 1fr;
