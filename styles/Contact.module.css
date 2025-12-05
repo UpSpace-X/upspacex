@@ -104,6 +104,28 @@
   font-weight: 500;
 }
 
+/* ✅ Error Message */
+.error {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--danger);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ✅ Loading State */
+.loading {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 500;
+}
+
 /* ✅ Responsive */
 @media (max-width: 768px) {
   .content {
