@@ -24,12 +24,23 @@ export default function Contact() {
     e.preventDefault();
     setStatus('loading');
 
-    // Simulate API call
-    setTimeout(() => {
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 3000);
-    }, 1000);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus('idle'), 3000);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -54,7 +65,7 @@ export default function Contact() {
               <div className={styles.contactMethods}>
                 <div className={styles.method}>
                   <h3>📧 Email</h3>
-                  <p>hello@upspacex@outlook.com</p>
+                  <p>hello.upspacex@outlook.com</p>
                 </div>
                 <div className={styles.method}>
                   <h3>💼 Business Inquiries</h3>
@@ -127,6 +138,9 @@ export default function Contact() {
 
               {status === 'success' && (
                 <p className={styles.success}>✓ Message sent successfully!</p>
+              )}
+              {status === 'error' && (
+                <p className={styles.error}>⚠️ Something went wrong. Please try again.</p>
               )}
             </form>
           </div>
