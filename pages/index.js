@@ -8,46 +8,54 @@ export default function Home({ featuredPosts }) {
     <Layout>
       {/* Hero Section */}
       <section className={styles.hero}>
-        <h1 className={styles.title}>
-          Welcome to <span className={styles.brand}>UpSpaceX</span>
-        </h1>
-        <p className={styles.subtitle}>
-          Curated insights in technology, business, and innovation — daily.
-        </p>
-        <div className={styles.cta}>
-          <a href="/blog" className={styles.ctaButton}>Explore Blog</a>
+        <div className="container">
+          <h1 className={styles.title}>
+            Welcome to <span className={styles.brand}>UpSpaceX</span>
+          </h1>
+          <p className={styles.subtitle}>
+            Curated insights in technology, business, and innovation — daily.
+          </p>
+          <div className={styles.cta}>
+            <a href="/blog" className={styles.ctaButton}>Explore Blog</a>
+          </div>
         </div>
       </section>
 
       {/* Featured Posts */}
       <section className={styles.featured}>
-        <h2 className={styles.sectionTitle}>Featured Posts</h2>
-        <div className={styles.grid}>
-          {featuredPosts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Featured Posts</h2>
+          <div className={styles.grid}>
+            {featuredPosts.map((post) => (
+              <PostCard key={post.id} post={post} />
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Categories Preview */}
       <section className={styles.categories}>
-        <h2 className={styles.sectionTitle}>Explore Topics</h2>
-        <div className={styles.categoryGrid}>
-          <a href="/blog/category/technology" className={styles.categoryCard}>Technology</a>
-          <a href="/blog/category/business" className={styles.categoryCard}>Business</a>
-          <a href="/blog/category/innovation" className={styles.categoryCard}>Innovation</a>
-          <a href="/blog/category/startups" className={styles.categoryCard}>Startups</a>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Explore Topics</h2>
+          <div className={styles.categoryGrid}>
+            <a href="/blog/category/technology" className={styles.categoryCard}>Technology</a>
+            <a href="/blog/category/business" className={styles.categoryCard}>Business</a>
+            <a href="/blog/category/innovation" className={styles.categoryCard}>Innovation</a>
+            <a href="/blog/category/startups" className={styles.categoryCard}>Startups</a>
+          </div>
         </div>
       </section>
 
       {/* Newsletter Section */}
       <section className={styles.newsletter}>
-        <h2 className={styles.sectionTitle}>Stay Ahead</h2>
-        <p className={styles.subtitle}>Subscribe for weekly insights and updates.</p>
-        <form className={styles.form}>
-          <input type="email" placeholder="Your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>Stay Ahead</h2>
+          <p className={styles.subtitle}>Subscribe for weekly insights and updates.</p>
+          <form className={styles.form}>
+            <input type="email" placeholder="Your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
       </section>
     </Layout>
   );
