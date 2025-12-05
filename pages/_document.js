@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* ✅ Use your high-resolution favicon.jpeg from /public */}
-        <link rel="icon" href="/favicon.jpeg" type="image/jpeg" />
+        {/* ✅ Use your high-resolution favicon.png from /public */}
+        <link rel="icon" href="/favicon.png" type="image/png" />
 
         {/* ✅ Apple touch icon for iOS home screens */}
-        <link rel="apple-touch-icon" href="/favicon.jpeg" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
 
         {/* ✅ Theme color for mobile browsers */}
         <meta name="theme-color" content="#2563eb" />

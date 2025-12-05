@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // ✅ Import Image for logo
 import { FiTwitter, FiFacebook, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import styles from '../../styles/Footer.module.css';
 
@@ -8,7 +9,14 @@ const Footer = () => {
       <div className={`container ${styles.container}`}>
         <div className={styles.grid}>
           <div className={styles.about}>
-            <h3>UpSpaceX</h3>
+            {/* ✅ Replace text logo with image logo */}
+            <Image 
+              src="/logo2.png" 
+              alt="UpSpaceX Logo" 
+              width={150} 
+              height={40} 
+              priority 
+            />
             <p>Your daily space for everything that matters.</p>
             <div className={styles.social}>
               <a href="#" aria-label="Twitter"><FiTwitter /></a>

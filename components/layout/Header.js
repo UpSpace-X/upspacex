@@ -16,7 +16,7 @@ const Header = () => {
           {/* ✅ Replace text logo with image */}
           <Link href="/" className={styles.logo}>
             <Image 
-              src="/logo.jpeg" 
+              src="/logo1.png" 
               alt="UpSpaceX Logo" 
               width={150} 
               height={40} 
